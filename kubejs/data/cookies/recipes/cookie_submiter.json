@@ -1,0 +1,9 @@
+{
+    "type": "custommachinery:custom_machine",
+    "machine": "cookies:cookie_submiteraa",
+    "time": 200,
+    "requirements": [],
+    "priority": 1000,
+    "error": true,
+    "hidden": false
+}

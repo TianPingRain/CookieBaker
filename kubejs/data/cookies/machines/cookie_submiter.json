@@ -1,0 +1,37 @@
+{
+    "name": {
+        "text": "曲奇提交站"
+    },
+    "appearance": {
+        "block":"cookies:block/cookie_submiter",
+        "sound": "minecraft:entity.generic.eat"},
+    "components": [
+        {
+        "id": "slot1",
+        "type": "custommachinery:item",
+        "filter": [
+            "minecraft:cookie"
+        ],
+        "whitelist": true,
+        "mode": "input"
+    }],
+    "gui": [
+        {
+            "type": "custommachinery:texture",
+            "x": 0,
+            "y": 0,
+            "texture": "custommachinery:textures/gui/base_background.png"
+        },
+        {
+            "type": "custommachinery:player_inventory",
+            "x": 50,
+            "y": 80
+        },
+        {
+            "type": "custommachinery:slot",
+            "x": 120,
+            "y": 40,
+            "id": "slot1"
+        }
+    ]
+}
