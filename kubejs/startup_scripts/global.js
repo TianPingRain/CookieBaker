@@ -1,1 +1,1 @@
-Platform.getInfo('cookies').name = 'Cookies++'
+Platform.getInfo("cookies").name = "Cookies++"
