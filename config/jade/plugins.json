@@ -55,6 +55,6 @@
     "mod_name": true
   },
   "custommachinery": {
-    "machine_component_provider": true
+    "machine_component_provider": false
   }
 }

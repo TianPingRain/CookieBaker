@@ -25,7 +25,6 @@ PlayerEvents.loggedIn((event) => {
 })
 
 PlayerEvents.chat((event) => {
-    // Updates example_rectangle x value and last_message text value to last message + contents from event
     event.player.paint({ cookie_counter: { text: `Last message: ${event.message}` } })
 })
 
