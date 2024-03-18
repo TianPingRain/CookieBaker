@@ -1,10 +1,10 @@
 StartupEvents.registry("block", (event) => {
     event
-        .create("cookies:cookie_block1") // Create a new block // Set a custom name
-        .material("cake") // Set a material (affects the sounds and some properties)
-        .hardness(1.0) // Set hardness (affects mining time)
-        .resistance(1.0) // Set resistance (to explosions, etc)
-        .tagBlock("cookies:cookie_block") // Tag the block with `#my_namespace:my_other_tag`
+        .create("cookies:cookie_block1")
+        .material("cake")
+        .hardness(1.0)
+        .resistance(1.0)
+        .tagBlock("cookies:cookie_block")
         .mapColor("COLOR_ORANGE")
 
     event
@@ -15,7 +15,13 @@ StartupEvents.registry("block", (event) => {
         .tagBlock("cookies:cookie_block")
         .mapColor("COLOR_ORANGE")
 
-    event.create("cookies:cookie_block3").material("cake").hardness(1.0).resistance(1.0).tagBlock("cookies:cookie_block").mapColor("DIRT")
+    event
+        .create("cookies:cookie_block3")
+        .material("cake")
+        .hardness(1.0)
+        .resistance(1.0)
+        .tagBlock("cookies:cookie_block")
+        .mapColor("DIRT")
 
     event
         .create("cookies:cookie_block4")

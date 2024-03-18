@@ -4,7 +4,3 @@ if (Platform.isClientEnvironment()) {
         event.register("ClientRawInputEvent.MouseScrolled", CLIENTRAWINPUTEVENT, "MOUSE_SCROLLED")
     })
 }
-
-StartupEvents.registry("item", (event) => {
-    event.create("create:create_manual")
-})
