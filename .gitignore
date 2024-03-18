@@ -1,0 +1,21 @@
+# 忽略所有的文件
+**
+
+# 白名单 路径前面加感叹号
+!.gitignore
+!config/
+!config/**
+!defaultconfigs/
+!defaultconfigs/**
+!mods/
+!schematics/
+!schematics/**
+schematics/uploaded
+!README.md
+
+## KubeJS
+!kubejs/
+!kubejs/**
+kubejs/README.txt
+kubejs/exported
+kubejs/probe
