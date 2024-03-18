@@ -1,8 +1,4 @@
 // priority: 0
-ServerEvents.loaded((event) => {
-    event.server.runCommand('/scoreboard objectives add cookie_submit dummy ["曲奇提交量"]')
-})
-
 PlayerEvents.loggedIn((event) => {
     if (!event.player.stages.has("started")) {
         event.player.stages.add("started")

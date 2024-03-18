@@ -180,7 +180,7 @@ global.cookie = (be) => {
             //一次10个 感觉上这个量应该调小点
             for (let i = 0; i < 10; i++) {
                 let Item = block.createEntity("item")
-                Item.item = "cookie" //输出的物品id
+                Item.item = "cookies:cookie_chip" //输出的物品id
                 Item.x = Math.random() * 7 - 3 + x
                 Item.y = 1 + y
                 Item.z = Math.random() * 7 - 3 + z
@@ -192,7 +192,7 @@ global.cookie = (be) => {
             //1次20个 感觉上这个量应该调小点
             for (let i = 0; i < 20; i++) {
                 let Item = block.createEntity("item")
-                Item.item = "cookie"
+                Item.item = "cookies:cookie_chip"
                 Item.x = Math.random() * 7 - 3 + x
                 Item.y = 1 + y
                 Item.z = Math.random() * 7 - 3 + z
