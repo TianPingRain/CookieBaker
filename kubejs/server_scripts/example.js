@@ -5,7 +5,7 @@ PlayerEvents.loggedIn(event => {
         type: 'text',
         text: 'No last message',
         scale: 1,
-        x: -4,
+        x: -5,
         y: -4,
         alignX: 'right',
         alignY: 'up',
