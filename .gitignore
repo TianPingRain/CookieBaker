@@ -8,6 +8,7 @@
 !defaultconfigs/
 !defaultconfigs/**
 !mods/
+!mods/**
 !schematics/
 !schematics/**
 schematics/uploaded
