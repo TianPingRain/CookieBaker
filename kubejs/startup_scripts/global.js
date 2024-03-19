@@ -5,9 +5,12 @@ Platform.getInfo("cookies").name = "Cookies++"
 global.cookie = (be) => {
     const { level, blockPos, x, y, z } = be
     const block = level.getBlock(blockPos)
+    const radius = 5
+    const aabb = AABB.of(x - radius, y, z - radius, x + radius, y + 2, z + radius)
+    const player = block.playersInRadius
 
     //下面是相对于曲奇中心的偏移坐标
-    let Cookie1Pos = [
+    const Cookie1Pos = [
         [3, 0, 0],
         [3, 0, 1],
         [2, 0, 1],
@@ -55,7 +58,7 @@ global.cookie = (be) => {
         [7, 0, -2],
     ]
 
-    let Cookie2Pos = [
+    const Cookie2Pos = [
         [1, 0, 0],
         [2, 0, 0],
         [2, 0, -1],
@@ -102,7 +105,7 @@ global.cookie = (be) => {
         [6, 0, 1],
     ]
 
-    let Cookie3Pos = [
+    const Cookie3Pos = [
         [0, 0, 5],
         [1, 0, 5],
         [2, 0, 5],
@@ -119,7 +122,7 @@ global.cookie = (be) => {
         [-6, 0, 2],
     ]
 
-    let Cookie4Pos = [
+    const Cookie4Pos = [
         [0, 0, -2],
         [-2, 0, 0],
         [0, 0, 2],
@@ -130,7 +133,7 @@ global.cookie = (be) => {
         [2, 0, -5],
     ]
 
-    let Cookie5Pos = [
+    const Cookie5Pos = [
         [0, 0, -1],
         [4, 0, 2],
         [6, 0, -3],
@@ -140,7 +143,7 @@ global.cookie = (be) => {
         [-5, 0, -1],
     ]
 
-    let Cookie6Pos = [
+    const Cookie6Pos = [
         [1, 0, -1],
         [1, 0, -2],
         [3, 0, -1],
@@ -150,7 +153,7 @@ global.cookie = (be) => {
         [3, 0, -5],
     ]
 
-    let Cookie7Pos = [
+    const Cookie7Pos = [
         [-6, 0, 3],
         [-5, 0, 4],
         [-4, 0, 5],
@@ -177,8 +180,8 @@ global.cookie = (be) => {
         Cookie7Pos.every((pos) => block.offset(pos[0], pos[1], pos[2]).id === "cookies:cookie_block7")
     ) {
         if (block.id == "cookies:cookie_block1") {
-            //一次10个 感觉上这个量应该调小点
-            for (let i = 0; i < 10; i++) {
+            player.setStatusMessage(Text.of("当前曲奇等级: 1").green())
+            for (let i = 0; i < 5; i++) {
                 let Item = block.createEntity("item")
                 Item.item = "cookies:cookie_chip" //输出的物品id
                 Item.x = Math.random() * 7 - 3 + x
@@ -186,11 +189,21 @@ global.cookie = (be) => {
                 Item.z = Math.random() * 7 - 3 + z
                 Item.spawn()
             }
+
+            level.getEntitiesWithin(aabb).forEach((entity) => {
+                if (entity.item && entity.item.id == "cookies:cookie_update1") {
+                    player.tell(Text.of("曲奇已升级！").green())
+                    player.tell(Text.of("曲奇生产速率：10秒 → 8秒").green())
+                    player.tell(Text.of("曲奇生产效率：5个 → 10个").green())
+                    block.set("cookies:cookie_block1_update1")
+                    entity.kill()
+                }
+            })
         }
         //升级后的
         if (block.id == "cookies:cookie_block1_update1") {
-            //1次20个 感觉上这个量应该调小点
-            for (let i = 0; i < 20; i++) {
+            player.setStatusMessage(Text.of("当前曲奇等级: 2").green())
+            for (let i = 0; i < 10; i++) {
                 let Item = block.createEntity("item")
                 Item.item = "cookies:cookie_chip"
                 Item.x = Math.random() * 7 - 3 + x
