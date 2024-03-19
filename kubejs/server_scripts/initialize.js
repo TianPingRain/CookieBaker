@@ -2,7 +2,7 @@
 PlayerEvents.loggedIn((event) => {
     if (!event.player.stages.has("started")) {
         event.player.stages.add("started")
-        event.player.give("minecraft:stone_sword")
+        event.player.give("minecraft:crafting_table")
         event.player.give(Item.of("minecraft:stone_pickaxe", "{Damage: 10}"))
         event.player.give("30x minecraft:apple")
 

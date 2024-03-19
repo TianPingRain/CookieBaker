@@ -31,4 +31,19 @@ BlockEvents.rightClicked((event) => {
             event.cancel()
         }
     }
+    if(block.hasTag("destroy:beetroots")){
+        let mcLevel = level
+        let blockState = mcLevel.getBlockState(block.pos)
+        let mcBlock = blockState.block
+        let mcPlayer = player
+
+            let loot = Block.getDrops(blockState, mcLevel, block.pos, null, mcPlayer, mcPlayer.getMainHandItem())
+            let seedYeeted = false
+            Block.popResource(mcLevel, block.pos, loot)
+                mcLevel.destroyBlock(block.pos, true, null, 32)
+                block.set("minecraft:beetroots", { age: "0" })
+            player.swing()
+            event.cancel()
+        
+    }
 })
