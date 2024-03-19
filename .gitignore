@@ -12,8 +12,6 @@
 !schematics/
 !schematics/**
 schematics/uploaded
-!template/
-!template/**
 !README.md
 
 ## KubeJS
