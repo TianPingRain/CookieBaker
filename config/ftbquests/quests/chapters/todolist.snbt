@@ -1,0 +1,43 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "todolist"
+	group: ""
+	id: "72CC7869A3AA44BD"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "create:goggles"
+			id: "1EBEDAA0F25BA53C"
+			tasks: [{
+				id: "49519DF84AF9EB1F"
+				type: "checkmark"
+			}]
+			title: "曲奇碎屑的思索"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: [
+				"如果玩家不小心挖掉某个曲奇方块那就很尴尬了"
+				"因为一共有7个曲奇方块，名字都一样"
+				"玩家很难找到要补上的方块是哪个"
+				"所以最好让曲奇方块无法被挖掘，或是需要特殊的工具"
+				"做一个曲奇收纳器（将整个结构收纳起来）应该不是什么难事"
+				"还是有更好的提议？"
+			]
+			icon: "cookies:cookie_block1"
+			id: "081BBB929A854850"
+			subtitle: "曲奇方块无法被挖掘"
+			tasks: [{
+				id: "7E11453B21F25A8F"
+				type: "checkmark"
+			}]
+			title: "曲奇方块的设定"
+			x: 2.0d
+			y: 0.0d
+		}
+	]
+	title: "ToDoList"
+}
