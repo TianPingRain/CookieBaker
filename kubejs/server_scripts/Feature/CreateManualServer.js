@@ -1,3 +1,7 @@
+/**
+ * 机械动力指南
+ */
+
 function get_page_type(ponder, player) {
     if (!player.persistentData.contains("create_manual_page_type")) {
         if (!("page_type" in ponder) || ponder.get("page_type") == "PonderTagIndexScreen") {
@@ -34,7 +38,9 @@ function create_manual_right_click(event) {
         }
         players_create_manual_right_click.push(event.player.username)
         event.server.scheduleInTicks(3, (callback) => {
-            players_create_manual_right_click = players_create_manual_right_click.filter((el) => el !== event.player.username)
+            players_create_manual_right_click = players_create_manual_right_click.filter(
+                (el) => el !== event.player.username
+            )
         })
 
         let ray = event.player.rayTrace(64)

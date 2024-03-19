@@ -1,3 +1,7 @@
+/**
+ * 机械动力指南
+ */
+
 const $PonderRegistry = Java.loadClass("com.simibubi.create.foundation.ponder.PonderRegistry")
 const $PonderTagIndexScreen = Java.loadClass("com.simibubi.create.foundation.ponder.ui.PonderTagIndexScreen")
 const $PonderTagScreen = Java.loadClass("com.simibubi.create.foundation.ponder.ui.PonderTagScreen")

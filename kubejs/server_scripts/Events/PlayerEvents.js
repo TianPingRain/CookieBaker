@@ -1,6 +1,18 @@
-// priority: 0
 PlayerEvents.loggedIn((event) => {
-    event.player.paint({
+    const { player } = event
+
+    //玩家第一次登入
+    if (!player.stages.has("started")) {
+        player.stages.add("started")
+        player.give("minecraft:stone_sword")
+        player.give(Item.of("minecraft:stone_pickaxe", "{Damage: 10}"))
+        player.give("30x minecraft:apple")
+
+        player.persistentData.cookie_submit = 0
+    }
+
+    //左上角的曲奇图标
+    player.paint({
         example_rectangle: {
             type: "atlas_texture",
             scale: 1,
@@ -24,10 +36,8 @@ PlayerEvents.loggedIn((event) => {
     })
 })
 
-PlayerEvents.chat((event) => {
-    event.player.paint({ cookie_counter: { text: `Last message: ${event.message}` } })
-})
-
 PlayerEvents.tick((event) => {
-    event.player.paint({ cookie_counter: { text: `${event.player.persistentData.cookie_submit}` } })
+    const { player } = event
+    //曲奇提交数
+    player.paint({ cookie_counter: { text: `${player.persistentData.cookie_submit}` } })
 })

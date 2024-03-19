@@ -1,3 +1,7 @@
+/**
+ * 机械动力指南 指令注册
+ */
+
 ServerEvents.commandRegistry((event) => {
     const { commands: Commands, arguments: Arguments } = event
     event.register(

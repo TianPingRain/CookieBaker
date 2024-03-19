@@ -1,7 +1,8 @@
-Platform.getInfo("cookies").name = "Cookies++"
+/**
+ * 曲奇岛的代码
+ */
 
 /** @param {Internal.BlockEntityJS} be */
-//欢迎来到史山
 global.cookie = (be) => {
     const { level, blockPos, x, y, z } = be
     const block = level.getBlock(blockPos)

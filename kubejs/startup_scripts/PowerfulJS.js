@@ -1,3 +1,7 @@
+/**
+ * Powered by PowerfulJS
+ */
+
 //魔力转液体
 CapabilityEvents.blockEntity((event) => {
     event.attach(
