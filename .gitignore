@@ -5,8 +5,8 @@
 !.gitignore
 !config/
 !config/**
-!defaultconfigs/
-!defaultconfigs/**
+# !defaultconfigs/
+# !defaultconfigs/**
 !mods/
 !mods/**
 !schematics/
