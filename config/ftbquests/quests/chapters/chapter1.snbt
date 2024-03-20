@@ -8,7 +8,7 @@
 	quest_links: [ ]
 	quests: [
 		{
-			icon: { Count: 32b, id: "cookies:cookie_chip" }
+			icon: "cookies:cookie_chip"
 			id: "72C2C963232A4F65"
 			shape: "gear"
 			size: 2.0d
@@ -21,7 +21,9 @@
 			y: 0.0d
 		}
 		{
+			dependencies: ["7386552A44B4CF9C"]
 			id: "18DDA1E1B03CBE1D"
+			subtitle: "需要在耕地下方放置矿物"
 			tasks: [{
 				id: "519A1F015506B755"
 				item: {
@@ -44,18 +46,105 @@
 				item: "cookies:cookie_submiter"
 				type: "item"
 			}]
-			x: 5.0d
+			x: 5.5d
+			y: -4.5d
+		}
+		{
+			id: "7386552A44B4CF9C"
+			tasks: [{
+				id: "250CE33D64DE5AC4"
+				item: {
+					Count: 1b
+					id: "itemfilters:tag"
+					tag: {
+						value: "forge:ores"
+					}
+				}
+				type: "item"
+			}]
+			title: "第一个矿哪来呢"
+			x: 4.5d
 			y: -3.0d
 		}
 		{
-			dependencies: ["72C2C963232A4F65"]
-			id: "223CEF49D56D95C8"
+			id: "2D136A642401D024"
 			tasks: [{
-				id: "0F4DBA6035A40E38"
-				type: "checkmark"
+				id: "7208D44613AECF7A"
+				item: "minecraft:cocoa_beans"
+				type: "item"
 			}]
-			title: "如何开局呢"
+			x: 8.5d
+			y: 4.0d
+		}
+		{
+			id: "72DB1A6ACA5AF500"
+			tasks: [{
+				id: "27ADC2CD41A0056F"
+				item: "create:wheat_flour"
+				type: "item"
+			}]
+			x: 6.5d
+			y: 4.5d
+		}
+		{
+			id: "00B24097BB1C50A0"
+			size: 2.0d
+			tasks: [{
+				id: "278FB46F8BB8F426"
+				item: "minecraft:cookie"
+				type: "item"
+			}]
+			x: 10.0d
+			y: 5.0d
+		}
+		{
+			id: "4C7778660A221053"
+			tasks: [{
+				id: "1ECBDB4E31929A02"
+				item: "cookies:uncooked_cookie"
+				type: "item"
+			}]
+			x: 7.5d
+			y: 5.0d
+		}
+		{
+			id: "0483EA59873EED70"
+			tasks: [{
+				id: "3F548B73EEB03CF1"
+				item: "cookies:cookie_stick"
+				type: "item"
+			}]
 			x: 2.0d
+			y: -1.5d
+		}
+		{
+			id: "54236362668C43E3"
+			tasks: [{
+				id: "4DC6C577F9CBC845"
+				item: "cookies:cookie_wand"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			id: "1D69F3F283C89AA6"
+			tasks: [{
+				id: "6762A302A61782F1"
+				item: "cookies:cookie_chip_block"
+				type: "item"
+			}]
+			x: 2.0d
+			y: 1.5d
+		}
+		{
+			id: "5749BC445D00A363"
+			tasks: [{
+				id: "1B477399A7F3F37B"
+				item: "minecraft:oak_sapling"
+				type: "item"
+			}]
+			x: 4.0d
 			y: 0.0d
 		}
 	]

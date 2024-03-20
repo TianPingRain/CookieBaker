@@ -38,6 +38,31 @@
 			x: 2.0d
 			y: 0.0d
 		}
+		{
+			dependencies: ["081BBB929A854850"]
+			id: "08D8480D94F8DECD"
+			subtitle: "截取整个结构，可以保留曲奇的升级"
+			tasks: [
+				{
+					id: "5D5C402AFD52CEF5"
+					item: "capsule:capsulemarker"
+					type: "item"
+				}
+				{
+					id: "4200304ADB9522F9"
+					item: {
+						Count: 1b
+						id: "capsule:capsule"
+						tag: {
+							size: 15
+						}
+					}
+					type: "item"
+				}
+			]
+			x: 3.5d
+			y: 0.0d
+		}
 	]
 	title: "ToDoList"
 }

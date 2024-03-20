@@ -4,8 +4,7 @@ PlayerEvents.loggedIn((event) => {
     //玩家第一次登入
     if (!player.stages.has("started")) {
         player.stages.add("started")
-        player.give("minecraft:stone_sword")
-        player.give(Item.of("minecraft:stone_pickaxe", "{Damage: 10}"))
+        player.give("crafting_on_a_stick:crafting_table")
         player.give("30x minecraft:apple")
 
         player.persistentData.cookie_submit = 0
