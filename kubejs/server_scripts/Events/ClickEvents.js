@@ -1,5 +1,9 @@
+const $UseOnContext = Java.loadClass("net.minecraft.world.item.context.UseOnContext")
+const $BlockHitResult = Java.loadClass("net.minecraft.world.phys.BlockHitResult")
+
 BlockEvents.rightClicked((event) => {
-    const { item, block, player, server } = event
+    const { block, player, facing, server, item } = event
+
     if (
         item.id == "cookies:cookie_wand" &&
         player.inventory.find("cookies:cookie_chip") &&
@@ -16,34 +20,17 @@ BlockEvents.rightClicked((event) => {
         ]
         let randomIndex = Math.floor(Math.random() * CookieBlocks.length)
 
-        // 判断当前方向并返回相反方向
-        let oppositeFacing
-        switch (player.facing) {
-            case "north":
-                oppositeFacing = "south"
-                break
-            case "south":
-                oppositeFacing = "north"
-                break
-            case "east":
-                oppositeFacing = "west"
-                break
-            case "west":
-                oppositeFacing = "east"
-                break
-            case "up":
-                oppositeFacing = "down"
-                break
-            case "down":
-                oppositeFacing = "up"
-                break
-            default:
-                oppositeFacing = player.facing
-        }
-        if(block[oppositeFacing].id=="minecraft:air"){
-            block[oppositeFacing].set(CookieBlocks[randomIndex])
+        let vec3 = new Vec3d(player.rayTrace().hitX, player.rayTrace().hitY, player.rayTrace().hitZ)
+        let blockHitResult = new $BlockHitResult(vec3, facing, block.pos, false)
+        let ctx = new $UseOnContext(player, event.hand, blockHitResult)
+        let direction = ctx.getClickedFace()
+
+        if (block[direction].id == "minecraft:air") {
+            block[direction].set(CookieBlocks[randomIndex])
             server.runCommandSilent(`clear ${player.username} cookies:cookie_chip 4`)
-            server.runCommandSilent(`playsound minecraft:block.cake.add_candle block @a ${block.x} ${block.y} ${block.z}`)//播放放置树苗的音效
+            server.runCommandSilent(
+                `playsound minecraft:block.cake.add_candle block @a ${block.x} ${block.y} ${block.z}`
+            )
             player.swing()
         }
     }
@@ -148,28 +135,6 @@ BlockEvents.rightClicked((event) => {
                 oak_tree.set("oak_leaves") //在其他位置放置树叶
             }
         })
-        server.runCommandSilent(`playsound minecraft:block.grass.place block @a ${block.x} ${block.y} ${block.z}`)//播放放置树苗的音效
+        server.runCommandSilent(`playsound minecraft:block.grass.place block @a ${block.x} ${block.y} ${block.z}`) //播放放置树苗的音效
     }
 })
-
-// ItemEvents.rightClicked("cookies:cookie_wand", (event) => {
-//     const { target, player } = event
-//     const CookieBlocks = [
-//         "cookies:cookie_block1",
-//         "cookies:cookie_block2",
-//         "cookies:cookie_block3",
-//         "cookies:cookie_block4",
-//         "cookies:cookie_block5",
-//         "cookies:cookie_block6",
-//         "cookies:cookie_block7",
-//     ]
-
-//     player.inventory.allItems.forEach((item) => {
-//         if (item.id == "cookies:cookie_chip") {
-//             const randomIndex = Math.floor(Math.random() * CookieBlocks.length)
-//             target.block[target.facing].set(CookieBlocks[randomIndex])
-//             item.count -= 4
-//             player.swing()
-//         }
-//     })
-// })
