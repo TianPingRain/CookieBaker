@@ -40,10 +40,12 @@ BlockEvents.rightClicked((event) => {
             default:
                 oppositeFacing = player.facing
         }
-
-        block[oppositeFacing].set(CookieBlocks[randomIndex])
-        server.runCommandSilent(`clear ${player.username} cookies:cookie_chip 4`)
-        player.swing()
+        if(block[oppositeFacing].id=="minecraft:air"){
+            block[oppositeFacing].set(CookieBlocks[randomIndex])
+            server.runCommandSilent(`clear ${player.username} cookies:cookie_chip 4`)
+            server.runCommandSilent(`playsound minecraft:block.cake.add_candle block @a ${block.x} ${block.y} ${block.z}`)//播放放置树苗的音效
+            player.swing()
+        }
     }
 
     //曲奇树 → 橡树
@@ -146,6 +148,7 @@ BlockEvents.rightClicked((event) => {
                 oak_tree.set("oak_leaves") //在其他位置放置树叶
             }
         })
+        server.runCommandSilent(`playsound minecraft:block.grass.place block @a ${block.x} ${block.y} ${block.z}`)//播放放置树苗的音效
     }
 })
 
