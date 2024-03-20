@@ -20,6 +20,7 @@ schematics/uploaded
 kubejs/README.txt
 kubejs/exported
 kubejs/probe
+kubejs/ponder.json
 kubejs/config/probejs.json
 
 ## 奇怪的东西 每次开游戏/进世界都会被更新 忽略掉

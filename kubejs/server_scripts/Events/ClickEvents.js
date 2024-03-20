@@ -1,57 +1,152 @@
-BlockEvents.rightClicked("minecraft:chest", (event) => {
-    if (event.player.getMainHandItem() == null) {
-        event.server.runCommand(`say ${event.block.getInventory().getAllItems()}`)
-        event.server.runCommand(`say ${event.block.getInventory().find()}`)
-        // event.player.paint({last_message: {text: `Last message: ${event.block.getInventory().getAllItems()}`}})
-    }
-})
-
 BlockEvents.rightClicked((event) => {
     const { item, block, player, server } = event
-    if (item.id == "cookies:cookie_wand") return
-    player.inventory.allItems.forEach((item) => {
-        if (item.id == "cookies:cookie_chip") {
-            const CookieBlocks = [
-                "cookies:cookie_block1",
-                "cookies:cookie_block2",
-                "cookies:cookie_block3",
-                "cookies:cookie_block4",
-                "cookies:cookie_block5",
-                "cookies:cookie_block6",
-                "cookies:cookie_block7",
-            ]
-            const randomIndex = Math.floor(Math.random() * CookieBlocks.length)
+    if (
+        item.id == "cookies:cookie_wand" &&
+        player.inventory.find("cookies:cookie_chip") &&
+        player.inventory.count("cookies:cookie_chip") >= 4
+    ) {
+        const CookieBlocks = [
+            "cookies:cookie_block1",
+            "cookies:cookie_block2",
+            "cookies:cookie_block3",
+            "cookies:cookie_block4",
+            "cookies:cookie_block5",
+            "cookies:cookie_block6",
+            "cookies:cookie_block7",
+        ]
+        const randomIndex = Math.floor(Math.random() * CookieBlocks.length)
 
-            // 判断当前方向并返回相反方向
-            let oppositeFacing
-            switch (player.facing) {
-                case "north":
-                    oppositeFacing = "south"
-                    break
-                case "south":
-                    oppositeFacing = "north"
-                    break
-                case "east":
-                    oppositeFacing = "west"
-                    break
-                case "west":
-                    oppositeFacing = "east"
-                    break
-                case "up":
-                    oppositeFacing = "down"
-                    break
-                case "down":
-                    oppositeFacing = "up"
-                    break
-                default:
-                    oppositeFacing = player.facing
-            }
-
-            block[oppositeFacing].set(CookieBlocks[randomIndex])
-            server.runCommandSilent(`clear ${player.username} cookies:cookie_chip 4`)
-            player.swing()
+        // 判断当前方向并返回相反方向
+        let oppositeFacing
+        switch (player.facing) {
+            case "north":
+                oppositeFacing = "south"
+                break
+            case "south":
+                oppositeFacing = "north"
+                break
+            case "east":
+                oppositeFacing = "west"
+                break
+            case "west":
+                oppositeFacing = "east"
+                break
+            case "up":
+                oppositeFacing = "down"
+                break
+            case "down":
+                oppositeFacing = "up"
+                break
+            default:
+                oppositeFacing = player.facing
         }
-    })
+
+        block[oppositeFacing].set(CookieBlocks[randomIndex])
+        server.runCommandSilent(`clear ${player.username} cookies:cookie_chip 4`)
+        player.swing()
+    }
+
+    //曲奇树 → 橡树
+    let input = [
+        "cookies:cookie_block1",
+        "cookies:cookie_block2",
+        "cookies:cookie_block3",
+        "cookies:cookie_block4",
+        "cookies:cookie_block5",
+        "cookies:cookie_block6",
+        "cookies:cookie_block7",
+    ]
+    let blockpos = [
+        [0, 0, 0],
+        [0, 1, 0],
+        [0, 2, 0],
+        [-2, 3, -2],
+        [-2, 3, -1],
+        [-2, 3, 0],
+        [-2, 3, 1],
+        [-2, 3, 2],
+        [-1, 3, -2],
+        [-1, 3, -1],
+        [-1, 3, 0],
+        [-1, 3, 1],
+        [-1, 3, 2],
+        [0, 3, -2],
+        [0, 3, -1],
+        [0, 3, 0],
+        [0, 3, 1],
+        [0, 3, 2],
+        [1, 3, -2],
+        [1, 3, -1],
+        [1, 3, 0],
+        [1, 3, 1],
+        [1, 3, 2],
+        [2, 3, -2],
+        [2, 3, -1],
+        [2, 3, 0],
+        [2, 3, 1],
+        [2, 3, 2],
+        [-2, 4, -2],
+        [-2, 4, -1],
+        [-2, 4, 0],
+        [-2, 4, 1],
+        [-2, 4, 2],
+        [-1, 4, -2],
+        [-1, 4, -1],
+        [-1, 4, 0],
+        [-1, 4, 1],
+        [-1, 4, 2],
+        [0, 4, -2],
+        [0, 4, -1],
+        [0, 4, 0],
+        [0, 4, 1],
+        [0, 4, 2],
+        [1, 4, -2],
+        [1, 4, -1],
+        [1, 4, 0],
+        [1, 4, 1],
+        [1, 4, 2],
+        [2, 4, -2],
+        [2, 4, -1],
+        [2, 4, 0],
+        [2, 4, 1],
+        [2, 4, 2],
+        [-1, 5, -1],
+        [-1, 5, 0],
+        [-1, 5, 1],
+        [0, 5, -1],
+        [0, 5, 0],
+        [0, 5, 1],
+        [1, 5, -1],
+        [1, 5, 0],
+        [1, 5, 1],
+        [-1, 6, 0],
+        [0, 6, -1],
+        [0, 6, 1],
+        [0, 6, 0],
+        [1, 6, 0],
+    ]
+    if (
+        item.id == "cookies:cookie_wand" &&
+        blockpos.every((pos) => input.includes(block.offset(pos[0], pos[1], pos[2]).id))
+    ) {
+        blockpos.forEach((pos) => {
+            let oak_tree = event.block.offset(pos[0], pos[1], pos[2])
+            if (
+                [
+                    [0, 0, 0],
+                    [0, 1, 0],
+                    [0, 2, 0],
+                    [0, 3, 0],
+                    [0, 4, 0],
+                    [0, 5, 0],
+                ].some((p) => p[0] === pos[0] && p[1] === pos[1] && p[2] === pos[2])
+            ) {
+                oak_tree.set("oak_log") //在这5个位置放置橡木原木
+            } else {
+                oak_tree.set("oak_leaves") //在其他位置放置树叶
+            }
+        })
+    }
 })
 
 // ItemEvents.rightClicked("cookies:cookie_wand", (event) => {
