@@ -28,5 +28,5 @@ config/defaultworldtype/world-presets.txt
 config/jei/world
 config/skyblockbuilder/data
 config/embeddium-fingerprint.json
-config/fml/toml
+config/fml.toml
 config/jei

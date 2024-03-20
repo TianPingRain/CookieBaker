@@ -2,7 +2,7 @@ const $UseOnContext = Java.loadClass("net.minecraft.world.item.context.UseOnCont
 const $BlockHitResult = Java.loadClass("net.minecraft.world.phys.BlockHitResult")
 
 BlockEvents.rightClicked((event) => {
-    const { block, player, facing, server, item } = event
+    const { block, player, facing, server, item, hand } = event
 
     if (
         item.id == "cookies:cookie_wand" &&
@@ -22,7 +22,7 @@ BlockEvents.rightClicked((event) => {
 
         let vec3 = new Vec3d(player.rayTrace().hitX, player.rayTrace().hitY, player.rayTrace().hitZ)
         let blockHitResult = new $BlockHitResult(vec3, facing, block.pos, false)
-        let ctx = new $UseOnContext(player, event.hand, blockHitResult)
+        let ctx = new $UseOnContext(player, hand, blockHitResult)
         let direction = ctx.getClickedFace()
 
         if (block[direction].id == "minecraft:air") {

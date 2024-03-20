@@ -1,4 +1,0 @@
-{
-    "pack": { "pack_format": 15, "description": "Disable All Recipe Advancements" },
-    "filter": { "block": [{ "path": "advancements/recipes/" }] }
-}
