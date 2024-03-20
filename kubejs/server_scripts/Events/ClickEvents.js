@@ -5,7 +5,7 @@ BlockEvents.rightClicked((event) => {
         player.inventory.find("cookies:cookie_chip") &&
         player.inventory.count("cookies:cookie_chip") >= 4
     ) {
-        const CookieBlocks = [
+        let CookieBlocks = [
             "cookies:cookie_block1",
             "cookies:cookie_block2",
             "cookies:cookie_block3",
@@ -14,7 +14,7 @@ BlockEvents.rightClicked((event) => {
             "cookies:cookie_block6",
             "cookies:cookie_block7",
         ]
-        const randomIndex = Math.floor(Math.random() * CookieBlocks.length)
+        let randomIndex = Math.floor(Math.random() * CookieBlocks.length)
 
         // 判断当前方向并返回相反方向
         let oppositeFacing
