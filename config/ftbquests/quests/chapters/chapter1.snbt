@@ -121,6 +121,7 @@
 		{
 			dependencies: ["72C2C963232A4F65"]
 			id: "54236362668C43E3"
+			subtitle: "消耗4个曲奇碎屑，随机放置曲奇方块"
 			tasks: [{
 				id: "4DC6C577F9CBC845"
 				item: "cookies:cookie_wand"
