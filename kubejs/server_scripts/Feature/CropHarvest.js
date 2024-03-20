@@ -1,3 +1,7 @@
+/**
+ * 右键收获作物
+ */
+
 let Block = Java.loadClass("net.minecraft.world.level.block.Block")
 
 BlockEvents.rightClicked((event) => {
@@ -22,9 +26,10 @@ BlockEvents.rightClicked((event) => {
             })
             if (seedYeeted) {
                 block.set(block.id, { age: "0" })
-                server.runCommandSilent(`playsound minecraft:block.crop.break block @a ${block.x} ${block.y} ${block.z}`)
+                server.runCommandSilent(
+                    `playsound minecraft:block.crop.break block @a ${block.x} ${block.y} ${block.z}`
+                )
             } else {
-                //if no seed was dropped for some odd reason
                 mcLevel.destroyBlock(block.pos, true, null, 32)
             }
             player.swing()
