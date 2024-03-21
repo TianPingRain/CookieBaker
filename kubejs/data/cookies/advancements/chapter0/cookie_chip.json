@@ -1,0 +1,28 @@
+  {
+	"display": {
+		"icon": {
+			"item": "cookies:cookie_chip"
+		},
+		"title": {"translate":"曲奇碎屑"},
+		"description": {"color":"#CCCCCC","translate":"碾碎他们！！"},
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/root",
+	"criteria": {
+		"cookie_chip": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"cookies:cookie_chip"
+						],
+						"count": 1
+					}
+				]
+			}
+		}
+	}
+}

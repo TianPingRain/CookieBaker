@@ -1,0 +1,28 @@
+  {
+	"display": {
+		"icon": {
+			"item": "cookies:cookie_stick"
+		},
+		"title": {"translate":"曲奇棒"},
+		"description": {"color":"#CCCCCC","translate":"长棍曲奇"},
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/cookie_chip_block",
+	"criteria": {
+		"cookie_stick": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"cookies:cookie_stick"
+						],
+						"count": 1
+					}
+				]
+			}
+		}
+	}
+}

@@ -1,0 +1,19 @@
+  {
+	"display": {
+		"icon": {
+			"item": "minecraft:oak_sapling"
+		},
+		"title": {"translate":"曲奇树"},
+		"description": {"color":"#CCCCCC","translate":"致富之路！"},
+		"frame": "challenge",
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/cookie_wand",
+	"criteria": {
+		"impossible": {
+			"trigger": "minecraft:impossible"
+		}
+	}
+}

@@ -1,0 +1,29 @@
+  {
+	"display": {
+		"icon": {
+			"item": "cookies:cookie_wand"
+		},
+		"title": {"translate":"曲奇法杖"},
+		"description": {"color":"#CCCCCC","translate":"曲奇的力量！！"},
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/cookie_stick",
+	"criteria": {
+		"cookie_wand": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"cookies:cookie_wand"
+						],
+						"count": 1
+					}
+				]
+			}
+		}
+	}
+}

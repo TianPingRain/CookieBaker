@@ -1,0 +1,29 @@
+  {
+	"display": {
+		"icon": {
+			"item": "minecraft:cookie"
+		},
+		"title": {"translate":"第0章"},
+		"description": {"color":"#CCCCCC","translate":"谁想来一块美味曲奇？"},
+		"background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+		"frame": "goal",
+		"show_toast": true,
+		"announce_to_chat": true
+	},
+
+	"criteria": {
+		"root": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"cookies:cookie_chip"
+						],
+						"count": 1
+					}
+				]
+			}
+		}
+	}
+}

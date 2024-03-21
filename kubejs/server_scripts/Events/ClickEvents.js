@@ -136,5 +136,6 @@ BlockEvents.rightClicked((event) => {
             }
         })
         server.runCommandSilent(`playsound minecraft:block.grass.place block @a ${block.x} ${block.y} ${block.z}`) //播放放置树苗的音效
+        server.runCommandSilent(`advancement grant ${player.username} only cookies:chapter0/oak_sapling`) //使玩家完成进度
     }
 })
