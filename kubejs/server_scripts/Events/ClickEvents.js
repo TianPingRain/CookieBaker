@@ -3,21 +3,27 @@ const $BlockHitResult = Java.loadClass("net.minecraft.world.phys.BlockHitResult"
 
 BlockEvents.rightClicked((event) => {
     const { block, player, facing, server, item, hand } = event
+    const CookieBlocks = [
+        "cookies:cookie_block1",
+        "cookies:cookie_block2",
+        "cookies:cookie_block3",
+        "cookies:cookie_block4",
+        "cookies:cookie_block5",
+        "cookies:cookie_block6",
+        "cookies:cookie_block7",
+    ]
 
+    //右键曲奇方块获取曲奇碎屑
+    if (CookieBlocks.includes(block.id)) {
+        player.give("cookies:cookie_chip")
+    }
+
+    //曲奇法杖
     if (
         item.id == "cookies:cookie_wand" &&
         player.inventory.find("cookies:cookie_chip") &&
         player.inventory.count("cookies:cookie_chip") >= 4
     ) {
-        let CookieBlocks = [
-            "cookies:cookie_block1",
-            "cookies:cookie_block2",
-            "cookies:cookie_block3",
-            "cookies:cookie_block4",
-            "cookies:cookie_block5",
-            "cookies:cookie_block6",
-            "cookies:cookie_block7",
-        ]
         let randomIndex = Math.floor(Math.random() * CookieBlocks.length)
 
         let vec3 = new Vec3d(player.rayTrace().hitX, player.rayTrace().hitY, player.rayTrace().hitZ)
@@ -36,15 +42,6 @@ BlockEvents.rightClicked((event) => {
     }
 
     //曲奇树 → 橡树
-    let input = [
-        "cookies:cookie_block1",
-        "cookies:cookie_block2",
-        "cookies:cookie_block3",
-        "cookies:cookie_block4",
-        "cookies:cookie_block5",
-        "cookies:cookie_block6",
-        "cookies:cookie_block7",
-    ]
     let blockpos = [
         [0, 0, 0],
         [0, 1, 0],
@@ -116,7 +113,7 @@ BlockEvents.rightClicked((event) => {
     ]
     if (
         item.id == "cookies:cookie_wand" &&
-        blockpos.every((pos) => input.includes(block.offset(pos[0], pos[1], pos[2]).id))
+        blockpos.every((pos) => CookieBlocks.includes(block.offset(pos[0], pos[1], pos[2]).id))
     ) {
         blockpos.forEach((pos) => {
             let oak_tree = event.block.offset(pos[0], pos[1], pos[2])
