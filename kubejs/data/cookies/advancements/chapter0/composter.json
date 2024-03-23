@@ -1,0 +1,29 @@
+  {
+	"display": {
+		"icon": {
+			"item": "minecraft:composter"
+		},
+		"title": {"translate":"堆肥桶"},
+		"description": {"color":"#CCCCCC","translate":"合成堆肥桶，堆肥得到骨粉"},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/oak_sapling",
+	"criteria": {
+		"bone_meal": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": [
+							"minecraft:bone_meal"
+						],
+						"count": 1
+					}
+				]
+			}
+		}
+	}
+}

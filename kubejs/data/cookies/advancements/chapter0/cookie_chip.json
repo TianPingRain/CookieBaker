@@ -4,7 +4,7 @@
 			"item": "cookies:cookie_chip"
 		},
 		"title": {"translate":"曲奇碎屑"},
-		"description": {"color":"#CCCCCC","translate":"碾碎他们！！"},
+		"description": {"color":"#CCCCCC","translate":"右键任何的曲奇方块以获得曲奇碎屑"},
 		"show_toast": true,
 		"announce_to_chat": true
 

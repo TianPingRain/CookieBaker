@@ -12,4 +12,19 @@ ServerEvents.recipes((event) => {
         1: "cookies:cookie_stick",
         2: "cookies:cookie_chip_block",
     })
+    //泥土
+    event.shaped(Item.of("minecraft:dirt", 4), [
+        'XY',
+        'YX'
+        ], {
+        X: "cookies:cookie_chip_block",
+        Y: "minecraft:bone_meal"
+    })
+    event.shaped(Item.of("minecraft:cobblestone", 4), [
+        'XY',
+        'YX'
+        ], {
+        X: "cookies:cookie_chip",
+        Y: "minecraft:oak_planks"
+    })
 })

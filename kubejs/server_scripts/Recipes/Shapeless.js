@@ -8,20 +8,11 @@ ServerEvents.recipes((event) => {
         'XX'
       ], {
         X: "cookies:cookie_chip"
-    }), 
-    event.shaped(Item.of("minecraft:dirt", 4), [
-    'XY',
-    'YX'
-    ], {
-    X: "cookies:cookie_chip",
-    Y: "minecraft:oak_sapling"
     })
-    event.shaped(Item.of("minecraft:cobblestone", 4), [
-    'XY',
-    'YX'
-    ], {
-    X: "cookies:cookie_chip",
-    Y: "minecraft:oak_planks"
-})
-
+    //曲奇块分解
+    event.shaped(Item.of("cookies:cookie_chip", 9), [
+        'X'
+      ], {
+        X: "cookies:cookie_chip_block"
+    })
 })

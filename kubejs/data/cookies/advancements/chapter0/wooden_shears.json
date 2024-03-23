@@ -1,0 +1,22 @@
+  {
+	"display": {
+		"icon": {
+			"item": "woodenshears:wooden_shears"
+		},
+		"title": {"translate":"木剪刀"},
+		"description": {"color":"#CCCCCC","translate":"合成木剪刀获取树叶，这可以帮助你更好的堆肥"},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/oak_sapling",
+	"criteria": {
+		"shears": {
+			"trigger": "minecraft:recipe_crafted",
+			"conditions": {
+			  "recipe_id": "woodenshears:wooden_shears"
+			}	
+		}
+	}
+}

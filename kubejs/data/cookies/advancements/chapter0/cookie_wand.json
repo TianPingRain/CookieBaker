@@ -13,17 +13,10 @@
 	"parent": "cookies:chapter0/cookie_stick",
 	"criteria": {
 		"cookie_wand": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "minecraft:recipe_crafted",
 			"conditions": {
-				"items": [
-					{
-						"items": [
-							"cookies:cookie_wand"
-						],
-						"count": 1
-					}
-				]
-			}
+			  "recipe_id": "minecraft:kjs/cookies_cookie_wand"
+			}	
 		}
 	}
 }

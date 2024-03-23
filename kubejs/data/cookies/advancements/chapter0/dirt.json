@@ -1,0 +1,22 @@
+  {
+	"display": {
+		"icon": {
+			"item": "minecraft:dirt"
+		},
+		"title": {"translate":"制造泥土"},
+		"description": {"color":"#CCCCCC","translate":"合成泥土，种植树木"},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/composter",
+	"criteria": {
+		"dirt": {
+			"trigger": "minecraft:recipe_crafted",
+			"conditions": {
+			  "recipe_id": "minecraft:kjs/dirt"
+			}	
+		}
+	}
+}

@@ -1,0 +1,30 @@
+  {
+	"display": {
+		"icon": {
+			"item": "minecraft:poppy"
+		},
+		"title": {"translate":"花朵增产"},
+		"description": {"color":"#CCCCCC","translate":"用骨粉右键花朵可以得到更多花"},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true
+
+	},
+	"parent": "cookies:chapter0/wooden_shears",
+	"criteria": {
+		"poppy": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+
+						"items": [
+							{
+							  "tag": "minecraft:flowers",
+							  "count": 1
+							}
+						  ]
+
+				
+			}
+		}
+	}
+}

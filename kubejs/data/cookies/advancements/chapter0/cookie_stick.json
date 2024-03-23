@@ -4,7 +4,7 @@
 			"item": "cookies:cookie_stick"
 		},
 		"title": {"translate":"曲奇棒"},
-		"description": {"color":"#CCCCCC","translate":"长棍曲奇"},
+		"description": {"color":"#CCCCCC","translate":"用曲奇方块合成曲奇棒"},
 		"show_toast": true,
 		"announce_to_chat": true
 
@@ -12,17 +12,10 @@
 	"parent": "cookies:chapter0/cookie_chip_block",
 	"criteria": {
 		"cookie_stick": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "minecraft:recipe_crafted",
 			"conditions": {
-				"items": [
-					{
-						"items": [
-							"cookies:cookie_stick"
-						],
-						"count": 1
-					}
-				]
-			}
+			  "recipe_id": "minecraft:kjs/cookies_cookie_stick"
+			}	
 		}
 	}
 }

@@ -4,7 +4,7 @@
 			"item": "cookies:cookie_chip_block"
 		},
 		"title": {"translate":"曲奇碎屑块"},
-		"description": {"color":"#CCCCCC","translate":"这个能吃么?"},
+		"description": {"color":"#CCCCCC","translate":"用曲奇碎屑合成曲奇碎屑块"},
 		"show_toast": true,
 		"announce_to_chat": true
 
@@ -12,17 +12,10 @@
 	"parent": "cookies:chapter0/cookie_chip",
 	"criteria": {
 		"cookie_chip_block": {
-			"trigger": "minecraft:inventory_changed",
+			"trigger": "minecraft:recipe_crafted",
 			"conditions": {
-				"items": [
-					{
-						"items": [
-							"cookies:cookie_chip_block"
-						],
-						"count": 1
-					}
-				]
-			}
+			  "recipe_id": "minecraft:kjs/cookies_cookie_chip_block"
+			}	
 		}
 	}
 }
