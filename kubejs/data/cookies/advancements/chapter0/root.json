@@ -13,17 +13,7 @@
 
 	"criteria": {
 		"root": {
-			"trigger": "minecraft:inventory_changed",
-			"conditions": {
-				"items": [
-					{
-						"items": [
-							"cookies:cookie_chip"
-						],
-						"count": 1
-					}
-				]
-			}
+			"trigger": "minecraft:impossible"
 		}
 	}
 }

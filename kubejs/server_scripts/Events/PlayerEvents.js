@@ -1,12 +1,14 @@
 PlayerEvents.loggedIn((event) => {
     const { player } = event
+    const { server } =event
 
     //玩家第一次登入
     if (!player.stages.has("started")) {
         player.stages.add("started")
         player.give("crafting_on_a_stick:crafting_table")
         player.give("30x minecraft:apple")
-
+        server.runCommandSilent(`advancement grant ${player.username} only cookies:chapter0/root`)
+        
         player.persistentData.cookie_submit = 0
         player.persistentData.timer = 0
     }
