@@ -5,7 +5,7 @@
 		},
 		"title": {"translate":"曲奇树"},
 		"description": {"color":"#CCCCCC","translate":"致富之路！"},
-		"frame": "challenge",
+		"frame": "goal",
 		"show_toast": true,
 		"announce_to_chat": true
 

@@ -8,14 +8,7 @@ ServerEvents.recipes((event) => {
         'XX'
       ], {
         X: "cookies:cookie_chip"
-    })
-    event.shaped(Item.of("minecraft:oak_sapling", 1), [
-    'XXX',
-    ' X ',
-    ' X '
-    ], {
-    X: "cookies:cookie_chip"
-    })
+    }), 
     event.shaped(Item.of("minecraft:dirt", 4), [
     'XY',
     'YX'

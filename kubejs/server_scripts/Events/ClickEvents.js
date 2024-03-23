@@ -14,7 +14,7 @@ BlockEvents.rightClicked((event) => {
     ]
 
     //右键曲奇方块获取曲奇碎屑
-    if (CookieBlocks.includes(block.id)) {
+    if (player.getMainHandItem()=="minecraft:air"&&CookieBlocks.includes(block.id)) {
         player.give("cookies:cookie_chip")
     }
 
