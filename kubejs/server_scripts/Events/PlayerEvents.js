@@ -73,4 +73,12 @@ PlayerEvents.tick((event) => {
     }else{
         player.paint({ timer: { text: `${(player.persistentData.timer/18000).toFixed(0)}` } })
     }
+
+
+    //飞行
+    player.abilities.mayfly = true
+    player.onUpdateAbilities()
+    //维持饥饿值和饱和度
+    player.setFoodLevel(20)
+    player.setSaturation(20)
 })

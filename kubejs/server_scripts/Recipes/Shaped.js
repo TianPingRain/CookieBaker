@@ -13,7 +13,7 @@ ServerEvents.recipes((event) => {
         2: "cookies:cookie_chip_block",
     })
     //泥土
-    event.shaped(Item.of("minecraft:dirt", 4), [
+    event.shaped(Item.of("minecraft:grass_block", 4), [
         'XY',
         'YX'
         ], {
