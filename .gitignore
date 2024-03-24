@@ -25,8 +25,8 @@ kubejs/config/probejs.json
 
 ## 奇怪的东西 每次开游戏/进世界都会被更新 忽略掉
 config/defaultworldtype/world-presets.txt
-config/jei/world
+config/jei/
+config/jei/**
 config/skyblockbuilder/data
 config/embeddium-fingerprint.json
 config/fml.toml
-config/jei
