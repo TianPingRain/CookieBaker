@@ -27,4 +27,16 @@ ServerEvents.recipes((event) => {
         X: "cookies:cookie_chip",
         Y: "minecraft:oak_planks"
     })
+    event.shaped(Item.of("cookies:wooden_shears", 1), [
+        'X ',
+        ' X'
+        ], {
+        X: "minecraft:oak_planks"
+    })
+    event.shaped(Item.of("cookies:cookie_sand_paper", 1), [
+        'X ',
+        ' X'
+        ], {
+        X: "cookies:cookie_chip_block"
+    })
 })
