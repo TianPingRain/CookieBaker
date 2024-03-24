@@ -2,25 +2,6 @@ const $ComposterBlock = Java.loadClass("net.minecraft.world.level.block.Composte
 
 ServerEvents.recipes((event) => {
     let itemsMap = {}
-
-    const keys = Object.keys($ComposterBlock.COMPOSTABLES)
-
-    keys.forEach((key) => {
-        const Compostable_Items = key.split("=>")[0].trim()
-
-        if (!itemsMap[Compostable_Items]) {
-            event.custom({
-                type: "spoiled:spoil_recipe",
-                ingredient: {
-                    item: Compostable_Items,
-                },
-                result: {
-                    item: "minecraft:rotten_flesh",
-                },
-            })
-        }
-    })
-
     const ModItem = [
         "destroy:yeast",
         "destroy:lapis_infused_beetroot",
@@ -135,5 +116,22 @@ ServerEvents.recipes((event) => {
                 item: "minecraft:rotten_flesh",
             },
         })
+    })
+
+    const keys = Object.keys($ComposterBlock.COMPOSTABLES)
+
+    keys.forEach((key) => {
+        const Compostable_Items = key.split("=>")[0].trim()
+        if (!itemsMap[Compostable_Items]) {
+            event.custom({
+                type: "spoiled:spoil_recipe",
+                ingredient: {
+                    item: Compostable_Items,
+                },
+                result: {
+                    item: "minecraft:rotten_flesh",
+                },
+            })
+        }
     })
 })
