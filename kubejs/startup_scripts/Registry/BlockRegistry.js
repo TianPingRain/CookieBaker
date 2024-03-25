@@ -1,6 +1,18 @@
 StartupEvents.registry("block", (event) => {
+    let $SoundEvents = Java.loadClass("net.minecraft.sounds.SoundEvents")
+    let CakeSoundType = new SoundType(
+        1,
+        1,
+        $SoundEvents.CAKE_ADD_CANDLE,
+        $SoundEvents.CAKE_ADD_CANDLE,
+        $SoundEvents.CAKE_ADD_CANDLE,
+        $SoundEvents.CAKE_ADD_CANDLE,
+        $SoundEvents.CAKE_ADD_CANDLE
+    )
+
     event
         .create("cookies:cookie_block1")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
@@ -8,7 +20,7 @@ StartupEvents.registry("block", (event) => {
 
     event
         .create("cookies:cookie_block2")
-        .material("cake")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
@@ -16,7 +28,7 @@ StartupEvents.registry("block", (event) => {
 
     event
         .create("cookies:cookie_block3")
-        .material("cake")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
@@ -24,7 +36,7 @@ StartupEvents.registry("block", (event) => {
 
     event
         .create("cookies:cookie_block4")
-        .material("cake")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
@@ -32,7 +44,7 @@ StartupEvents.registry("block", (event) => {
 
     event
         .create("cookies:cookie_block5")
-        .material("cake")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
@@ -40,7 +52,7 @@ StartupEvents.registry("block", (event) => {
 
     event
         .create("cookies:cookie_block6")
-        .material("cake")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
@@ -48,7 +60,7 @@ StartupEvents.registry("block", (event) => {
 
     event
         .create("cookies:cookie_block7")
-        .material("cake")
+        .soundType(CakeSoundType)
         .hardness(1.0)
         .resistance(1.0)
         .tagBlock("cookies:cookie_block")
