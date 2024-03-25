@@ -21,11 +21,7 @@ BlockEvents.rightClicked((event) => {
     }
 
     //曲奇法杖
-    if (
-        item.id == "cookies:cookie_wand" &&
-        player.inventory.find("cookies:cookie_chip") &&
-        player.inventory.count("cookies:cookie_chip") >= 4
-    ) {
+    if (item.id == "cookies:cookie_wand" && player.inventory.count("cookies:cookie_chip") >= 4) {
         let randomIndex = Math.floor(Math.random() * CookieBlocks.length)
 
         let vec3 = new Vec3d(player.rayTrace().hitX, player.rayTrace().hitY, player.rayTrace().hitZ)
