@@ -1,3 +1,7 @@
+/**
+ * Lychee - 作物腐烂
+ */
+
 ServerEvents.recipes((event) => {
     event.custom({
         type: "lychee:random_block_ticking",

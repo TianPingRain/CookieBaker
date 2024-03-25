@@ -1,6 +1,9 @@
+/**
+ * 玩家事件
+ */
+
 PlayerEvents.loggedIn((event) => {
-    const { player } = event
-    const { server } =event
+    const { player, server } = event
 
     //玩家第一次登入
     if (!player.stages.has("started")) {
@@ -8,7 +11,7 @@ PlayerEvents.loggedIn((event) => {
         player.give("crafting_on_a_stick:crafting_table")
         player.give("30x minecraft:apple")
         server.runCommandSilent(`advancement grant ${player.username} only cookies:chapter0/root`)
-        
+
         player.persistentData.cookie_submit = 0
         player.persistentData.timer = 0
     }
@@ -68,12 +71,11 @@ PlayerEvents.tick((event) => {
 
     //计时相关
     player.persistentData.timer = player.persistentData.timer + 1
-    if(player.isShiftKeyDown()){
+    if (player.isShiftKeyDown()) {
         player.paint({ timer: { text: `${player.persistentData.timer}` } })
-    }else{
-        player.paint({ timer: { text: `${(player.persistentData.timer/18000).toFixed(0)}` } })
+    } else {
+        player.paint({ timer: { text: `${(player.persistentData.timer / 18000).toFixed(0)}` } })
     }
-
 
     //飞行
     player.abilities.mayfly = true

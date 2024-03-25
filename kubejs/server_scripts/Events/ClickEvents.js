@@ -1,8 +1,12 @@
+/**
+ * 右键事件
+ */
+
 const $UseOnContext = Java.loadClass("net.minecraft.world.item.context.UseOnContext")
 const $BlockHitResult = Java.loadClass("net.minecraft.world.phys.BlockHitResult")
 
 BlockEvents.rightClicked((event) => {
-    const { block, player, facing, server, item, hand } = event
+    const { block, player, facing, server, item, hand, level } = event
 
     const CookieBlocks = [
         "cookies:cookie_block1",
@@ -14,11 +18,8 @@ BlockEvents.rightClicked((event) => {
         "cookies:cookie_block7",
     ]
 
-    //防止事件触发两次
-    if (hand == "main_hand") return
-
     //右键曲奇方块获取曲奇碎屑
-    if (player.mainHandItem == "minecraft:air" && CookieBlocks.includes(block.id)) {
+    if (hand == "main_hand" && player.mainHandItem.empty && CookieBlocks.includes(block.id)) {
         player.give("cookies:cookie_chip")
         player.swing()
     }
@@ -36,12 +37,13 @@ BlockEvents.rightClicked((event) => {
         let ctx = new $UseOnContext(player, hand, blockHitResult)
         let direction = ctx.getClickedFace()
 
-        if (block[direction].id == "minecraft:air") {
+        let { x, y, z } = block[direction]
+        let aabb = AABB.of(x, y, z, x + 1, y + 1, z + 1)
+
+        if (block[direction].id == "minecraft:air" && level.getEntitiesWithin(aabb).isEmpty()) {
             block[direction].set(CookieBlocks[randomIndex])
             server.runCommandSilent(`clear ${player.username} cookies:cookie_chip 4`)
-            server.runCommandSilent(
-                `playsound minecraft:block.cake.add_candle block @a ${block.x} ${block.y} ${block.z}`
-            )
+            player.playNotifySound("minecraft:block.cake.add_candle", "blocks", 100, 1)
             player.swing()
         }
     }

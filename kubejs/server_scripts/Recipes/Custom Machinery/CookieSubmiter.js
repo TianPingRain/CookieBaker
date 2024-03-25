@@ -1,5 +1,8 @@
+/**
+ * 配方添加 - 曲奇提交站
+ */
+
 ServerEvents.recipes((event) => {
-    //曲奇提交站
     event.recipes.custommachinery
         .custom_machine("cookies:cookie_submiter", 100)
         .requireItem(Item.of("minecraft:cookie"))

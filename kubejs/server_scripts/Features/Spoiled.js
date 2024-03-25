@@ -1,3 +1,7 @@
+/**
+ * 给可用于堆肥的物品添加腐烂特性
+ */
+
 const $ComposterBlock = Java.loadClass("net.minecraft.world.level.block.ComposterBlock")
 
 ServerEvents.recipes((event) => {

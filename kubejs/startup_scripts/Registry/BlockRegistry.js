@@ -1,3 +1,7 @@
+/**
+ * 方块注册
+ */
+
 StartupEvents.registry("block", (event) => {
     let $SoundEvents = Java.loadClass("net.minecraft.sounds.SoundEvents")
     let CakeSoundType = new SoundType(
