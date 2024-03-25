@@ -1,4 +1,5 @@
 /**
+ * 给物品 从植物魔法辞典中 动态生成 机械动力式的提示
  * 代码来自KubeJS Discord 作者：Yarden-zamir
  * https://discord.com/channels/303440391124942858/1172665353084608652
  */

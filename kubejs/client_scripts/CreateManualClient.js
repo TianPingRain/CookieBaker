@@ -1,5 +1,7 @@
 /**
  * 机械动力指南
+ * 代码来自KubeJS Discord 作者：KostromDan
+ * https://discord.com/channels/303440391124942858/1102374462747332698
  */
 
 const $PonderRegistry = Java.loadClass("com.simibubi.create.foundation.ponder.PonderRegistry")
@@ -38,6 +40,10 @@ function remove_ponder_tag(ponder_tag) {
         }
     }
 }
+
+NetworkEvents.dataReceived("open_ponder_index_screen", (event) => {
+    $ScreenOpener.open(new $PonderTagIndexScreen())
+})
 
 NetworkEvents.dataReceived("open_multi_ponder", (event) => {
     let ponders = event.data["ponders"]
@@ -109,8 +115,11 @@ ArchEvents.handleClient("ClientRawInputEvent.MouseScrolled", (event) => {
     }
     event.setResult($EventResult.pass()) //Don't cancel event.
 })
-
-ClientEvents.highPriorityAssets((e) => {
-    e.addLang("create.ponder.tag.current_blocks", "Current Blocks")
-    e.addLang("create.ponder.tag.current_blocks.description", "The item you clicked on, has several Ponder pages:")
+ClientEvents.lang("en_us", (event) => {
+    event.add("create.ponder.tag.current_blocks", "Current Blocks")
+    event.add("create.ponder.tag.current_blocks.description", "The item you clicked on, has several Ponder pages:")
 })
+// ClientEvents.highPriorityAssets((e) => {
+//     e.addLang("create.ponder.tag.current_blocks", "Current Blocks")
+//     e.addLang("create.ponder.tag.current_blocks.description", "The item you clicked on, has several Ponder pages:")
+// })
