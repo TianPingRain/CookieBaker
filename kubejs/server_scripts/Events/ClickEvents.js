@@ -3,6 +3,7 @@ const $BlockHitResult = Java.loadClass("net.minecraft.world.phys.BlockHitResult"
 
 BlockEvents.rightClicked((event) => {
     const { block, player, facing, server, item, hand } = event
+
     const CookieBlocks = [
         "cookies:cookie_block1",
         "cookies:cookie_block2",
@@ -13,9 +14,13 @@ BlockEvents.rightClicked((event) => {
         "cookies:cookie_block7",
     ]
 
+    //防止事件触发两次
+    if (hand == "main_hand") return
+
     //右键曲奇方块获取曲奇碎屑
-    if (player.getMainHandItem()=="minecraft:air"&&CookieBlocks.includes(block.id)) {
+    if (player.mainHandItem == "minecraft:air" && CookieBlocks.includes(block.id)) {
         player.give("cookies:cookie_chip")
+        player.swing()
     }
 
     //曲奇法杖
