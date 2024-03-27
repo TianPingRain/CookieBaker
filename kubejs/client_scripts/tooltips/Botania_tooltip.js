@@ -1,4 +1,40 @@
-// priority: 10
+/**
+ * 给物品 从植物魔法辞典中 动态生成 机械动力式的提示
+ * 代码来自KubeJS Discord 作者：Yarden-zamir
+ * https://discord.com/channels/303440391124942858/1172665353084608652
+ */
+
+let $TooltipModifier = Java.loadClass("com.simibubi.create.foundation.item.TooltipModifier")
+let $Palette = Java.loadClass("com.simibubi.create.foundation.item.TooltipHelper$Palette")
+let $ItemDescription = Java.loadClass("com.simibubi.create.foundation.item.ItemDescription$Modifier")
+
+let itemTooltips = []
+
+//支持多语言 当然 需要在进游戏后F3 + T
+ClientEvents.lang("en_us", (event) => {
+    itemTooltips.forEach((tooltipObject) => {
+        let [id, tooltip] = tooltipObject
+        let item = Item.of(id)
+        event.add(`${item.getDescriptionId()}.tooltip.summary`, tooltip)
+    })
+    Ingredient.all.itemIds.forEach((id) => {
+        $TooltipModifier.REGISTRY.registerDeferred(id, (item) => new $ItemDescription(item, $Palette.STANDARD_CREATE))
+    })
+})
+
+function sortObjectByKey(obj) {
+    if (!obj) return obj
+    if (typeof obj !== "object") return obj
+    const sortedKeys = Object.keys(obj).sort()
+    const sortedObj = {}
+
+    sortedKeys.forEach((key) => {
+        sortedObj[key] = obj[key]
+    })
+
+    return sortedObj
+}
+
 function snakeToCamel(str) {
     return str.replace(/(_\w)/g, (m) => m[1].toUpperCase())
 }
@@ -63,7 +99,7 @@ ClientEvents.highPriorityAssets((event) => {
         let key = `botania.tagline.${cameCaseName}`
         let translated = Text.translate(key).getString()
         if (translated == key) {
-            console.info(`missing description for ${item} key ${key}`)
+            // console.info(`missing description for ${item} key ${key}`)
             return
         }
         let description = `_${translated}._${parseBotaniaPageSyntax(grabPage(cameCaseName, 0))}`
@@ -71,7 +107,8 @@ ClientEvents.highPriorityAssets((event) => {
         let floatingVersion = Item.of(item.id.split(":")[0] + ":floating_" + item.id.split(":")[1])
         let chibiVersion = Item.of(item.id + "_chibi")
         let floatingChibiVersion = Item.of(floatingVersion.id + "_chibi")
-        if (item.getDescriptionId() != "block.minecraft.air") obj[`${item.getDescriptionId()}.tooltip.summary`] = description
+        if (item.getDescriptionId() != "block.minecraft.air")
+            obj[`${item.getDescriptionId()}.tooltip.summary`] = description
         if (floatingVersion.getDescriptionId() != "block.minecraft.air")
             obj[`${floatingVersion.getDescriptionId()}.tooltip.summary`] = description
         if (chibiVersion.getDescriptionId() != "block.minecraft.air")
@@ -79,5 +116,6 @@ ClientEvents.highPriorityAssets((event) => {
         if (floatingChibiVersion.getDescriptionId() != "block.minecraft.air")
             obj[`${floatingChibiVersion.getDescriptionId()}.tooltip.summary`] = description
     })
-    if (Object.keys(obj).length > 0) JsonIO.write("kubejs/assets/botania_tooltips/lang/en_us.json", sortObjectByKey(obj))
+    if (Object.keys(obj).length > 0)
+        JsonIO.write("kubejs/assets/botania_tooltips/lang/en_us.json", sortObjectByKey(obj))
 })
