@@ -2,7 +2,6 @@
 allowAdventureTwerking: true
 chance: 0.5
 debug: false
-enableMysticalCrops: true
 ignoreList:
     [
         "minecraft:grass_block",
@@ -15,7 +14,7 @@ ignoreList:
 range: 3
 requireHoe: true
 requirements:
-    durabilityDamage: 1
+    durabilityDamage: 0
     enabled: true
     heldItemRequirement: ["#minecraft:hoes"]
     requiredEnchantment: ""
