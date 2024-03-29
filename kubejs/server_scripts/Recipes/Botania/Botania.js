@@ -17,4 +17,5 @@ ServerEvents.recipes((event) => {
     } = event.recipes.botania
 
     mana_infusion("destroy:magic_beetroot_seeds", "minecraft:wheat_seeds", 200)
+    mana_infusion("destroy:magic_beetroot_seeds", "minecraft:beetroot_seeds", 200)
 })
