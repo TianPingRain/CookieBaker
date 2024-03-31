@@ -16,7 +16,7 @@ requireHoe: true
 requirements:
     durabilityDamage: 0
     enabled: true
-    heldItemRequirement: ["#minecraft:hoes"]
+    heldItemRequirement: "#minecraft:hoes"
     requiredEnchantment: ""
     requiredItemTakesDamage: true
 useWhitelist: false
