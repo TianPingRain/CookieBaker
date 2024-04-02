@@ -37,4 +37,9 @@ ServerEvents.recipes((event) => {
     event.shaped("9x cookies:cookie_chip", ["1"], {
         1: "cookies:cookie_chip_block",
     })
+
+    event.shaped(Item.of('woodenbucket:wooden_bucket', '{Damage:0,Fluid:{Amount:1000,FluidName:"minecraft:water"}}'), ["111", "121", "111"], {
+        1: "#minecraft:leaves",
+        2: "woodenbucket:wooden_bucket",
+    })
 })

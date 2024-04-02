@@ -12,7 +12,8 @@ ServerEvents.recipes((event) => {
     const SpacialItem = [
         Ingredient.of("#minecraft:leaves").itemIds,
         Ingredient.of("#minecraft:saplings").itemIds,
-        Ingredient.of("#minecraft:flowers").itemIds.filter((item) => item.startsWith("minecraft:")),
+        Ingredient.of("#minecraft:flowers").itemIds,
+        Ingredient.of("#botania:petals").itemIds
     ]
 
     SpacialItem.forEach((item) => {
@@ -25,16 +26,15 @@ ServerEvents.recipes((event) => {
                 ingredient: {
                     item: itemName,
                 },
-                spoiltime: 3600,
+                spoiltime: 7200,
                 result: {
-                    item: "minecraft:rotten_flesh",
+                    item: "cookies:putrefaction",
                 },
             })
         })
     })
 
     const ModItem = [
-        "cookies:cookie_chip",
         "destroy:yeast",
         "destroy:lapis_infused_beetroot",
         "destroy:copper_infused_beetroot",
@@ -57,30 +57,17 @@ ServerEvents.recipes((event) => {
         "destroy:yeast_covered_agar_block",
         "botania:cyan_mushroom",
         "botania:red_double_flower",
-        "botania:lime_petal",
         "botania:gray_mushroom",
-        "botania:yellow_petal",
-        "botania:gray_petal",
-        "botania:light_blue_petal_block",
-        "botania:black_petal",
-        "botania:lime_petal_block",
         "botania:white_double_flower",
         "botania:lime_mystical_flower",
-        "botania:light_gray_petal",
         "botania:magenta_mushroom",
         "botania:green_mushroom",
         "botania:blue_mystical_flower",
         "botania:lime_double_flower",
-        "botania:magenta_petal",
-        "botania:white_petal",
         "botania:black_double_flower",
-        "botania:red_petal_block",
-        "botania:yellow_petal_block",
-        "botania:light_blue_petal",
         "botania:light_gray_mystical_flower",
         "botania:gray_double_flower",
         "botania:brown_double_flower",
-        "botania:green_petal",
         "botania:white_mushroom",
         "botania:light_blue_mystical_flower",
         "botania:lime_mushroom",
@@ -92,30 +79,14 @@ ServerEvents.recipes((event) => {
         "botania:green_double_flower",
         "botania:black_mushroom",
         "botania:pink_double_flower",
-        "botania:light_gray_petal_block",
         "botania:orange_mushroom",
         "botania:yellow_mystical_flower",
-        "botania:pink_petal_block",
         "botania:red_mystical_flower",
-        "botania:purple_petal_block",
-        "botania:brown_petal_block",
-        "botania:cyan_petal",
-        "botania:orange_petal",
         "botania:yellow_mushroom",
-        "botania:purple_petal",
         "botania:cyan_double_flower",
-        "botania:green_petal_block",
-        "botania:white_petal_block",
         "botania:light_blue_double_flower",
-        "botania:blue_petal",
-        "botania:orange_petal_block",
-        "botania:pink_petal",
-        "botania:magenta_petal_block",
         "botania:magenta_mystical_flower",
         "botania:light_gray_double_flower",
-        "botania:brown_petal",
-        "botania:black_petal_block",
-        "botania:cyan_petal_block",
         "botania:yellow_double_flower",
         "botania:cell_block",
         "botania:orange_mystical_flower",
@@ -126,9 +97,6 @@ ServerEvents.recipes((event) => {
         "botania:blue_double_flower",
         "botania:black_mystical_flower",
         "botania:purple_double_flower",
-        "botania:gray_petal_block",
-        "botania:blue_petal_block",
-        "botania:red_petal",
         "botania:white_mystical_flower",
         "botania:brown_mystical_flower",
         "botania:purple_mystical_flower",
@@ -145,7 +113,7 @@ ServerEvents.recipes((event) => {
                 item: item,
             },
             result: {
-                item: "minecraft:rotten_flesh",
+                item: "cookies:putrefaction",
             },
         })
     })
@@ -158,7 +126,7 @@ ServerEvents.recipes((event) => {
                     item: key,
                 },
                 result: {
-                    item: "minecraft:rotten_flesh",
+                    item: "cookies:putrefaction",
                 },
             })
         }

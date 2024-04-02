@@ -2,21 +2,9 @@
 allowAdventureTwerking: true
 chance: 0.5
 debug: false
-ignoreList:
-    [
-        "minecraft:grass_block",
-        "minecraft:grass",
-        "minecraft:tall_grass",
-        "minecraft:netherrack",
-        "minecraft:warped_nylium",
-        "minecraft:crimson_nylium",
-    ]
+enableMysticalCrops: true
+ignoreList: ['minecraft:grass_block', 'minecraft:grass', 'minecraft:tall_grass', 'minecraft:netherrack',
+  'minecraft:warped_nylium', 'minecraft:crimson_nylium']
 range: 3
 requireHoe: true
-requirements:
-    durabilityDamage: 0
-    enabled: true
-    heldItemRequirement: "#minecraft:hoes"
-    requiredEnchantment: ""
-    requiredItemTakesDamage: true
-useWhitelist: false
+useWhitelist: true
